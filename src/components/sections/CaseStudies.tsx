@@ -13,7 +13,7 @@ const CaseStudies: React.FC = () => {
   ];
 
   return (
-    <section id="cases" className="py-24 md:py-32 bg-secondary/20 blueprint-grid">
+    <section id="cases" className="py-20 md:py-28 bg-muted/50">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0 }}
@@ -21,12 +21,9 @@ const CaseStudies: React.FC = () => {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <div className="flex items-center gap-3 mb-4">
-            <div className="h-px w-12 bg-primary" />
-            <span className="text-xs font-medium tracking-[0.2em] text-primary uppercase">
-              {t("cases.title")}
-            </span>
-          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
+            {t("cases.title")}
+          </h2>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -37,16 +34,17 @@ const CaseStudies: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="border border-border bg-background p-8 group hover:border-primary/40 transition-colors"
+              className="bg-background border border-border rounded-lg p-8 group hover:border-foreground/20 transition-colors cursor-pointer"
             >
-              <div className="h-32 mb-6 bg-secondary/50 border border-border flex items-center justify-center">
-                <div className="w-16 h-16 border border-border/60 rounded-sm" />
+              {/* Placeholder thumbnail */}
+              <div className="h-40 mb-6 bg-muted rounded-md flex items-center justify-center overflow-hidden">
+                <div className="w-full h-full bg-gradient-to-br from-muted to-muted-foreground/5" />
               </div>
               <div className="flex items-start justify-between gap-2">
                 <h3 className="text-base font-semibold text-foreground mb-2">
                   {t(c.titleKey)}
                 </h3>
-                <ArrowUpRight size={16} className="text-primary mt-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <ArrowUpRight size={16} className="text-muted-foreground mt-1 opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {t(c.descKey)}
