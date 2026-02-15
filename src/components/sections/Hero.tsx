@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
   return (
     <section className="relative min-h-screen px-2 pb-2 pt-0">
       {/* Background image with rounded corners and spacing */}
-      <div className="relative w-full h-screen rounded-[20px] rounded-tl-none overflow-hidden">
+      <div className="relative w-full h-screen rounded-xl overflow-hidden">
         <img
           src={heroBg}
           alt=""
