@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Language } from "@/i18n/translations";
 import { Menu, X, ArrowUpRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import MenuOverlay from "@/components/MenuOverlay";
 
 const languages: { code: Language; label: string }[] = [
   { code: "en", label: "EN" },
@@ -13,11 +15,7 @@ const languages: { code: Language; label: string }[] = [
 const Header: React.FC = () => {
   const { t, lang, setLang } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const navItems = [
-    { key: "nav.services", href: "#services" },
-    { key: "nav.contact", href: "#contact" },
-  ];
+  const navigate = useNavigate();
 
   return (
     <>
@@ -25,64 +23,28 @@ const Header: React.FC = () => {
       <header className="fixed top-0 left-0 z-50">
         <div className="bg-background rounded-br-2xl px-6 py-4 flex items-center gap-6">
           {/* Logo */}
-          <a href="#" className="font-mono text-lg font-bold text-foreground tracking-tight">
+          <a
+            onClick={() => { navigate("/"); setMenuOpen(false); }}
+            className="font-mono text-lg font-bold text-foreground tracking-tight cursor-pointer"
+          >
             &lt;/C&gt;
           </a>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-6">
-            {navItems.map((item) => (
-              <a
-                key={item.key}
-                href={item.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {t(item.key)}
-              </a>
-            ))}
-          </nav>
-
-          {/* Mobile menu button */}
+          {/* Menu button */}
           <button
-            className="md:hidden p-1 text-foreground"
+            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
           >
-            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+            {menuOpen ? <X size={18} /> : <Menu size={18} />}
+            <span className="font-mono text-xs uppercase tracking-wider">
+              {menuOpen ? "Close" : "Menu"}
+            </span>
           </button>
         </div>
-
-        {/* Mobile menu */}
-        {menuOpen && (
-          <div className="md:hidden bg-background rounded-br-2xl px-6 pb-4 border-t border-border">
-            <nav className="flex flex-col gap-3 pt-2">
-              {navItems.map((item) => (
-                <a
-                  key={item.key}
-                  href={item.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="text-sm text-muted-foreground hover:text-foreground"
-                >
-                  {t(item.key)}
-                </a>
-              ))}
-            </nav>
-            <div className="flex gap-2 mt-3 pt-3 border-t border-border">
-              {languages.map((l) => (
-                <button
-                  key={l.code}
-                  onClick={() => { setLang(l.code); setMenuOpen(false); }}
-                  className={`px-2 py-1 text-xs font-mono ${
-                    lang === l.code ? "text-foreground font-semibold" : "text-muted-foreground"
-                  }`}
-                >
-                  {l.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
       </header>
+
+      {/* Menu overlay */}
+      <MenuOverlay isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
 
       {/* Floating language switcher - bottom right */}
       <div className="fixed bottom-6 right-6 z-50 hidden md:flex">

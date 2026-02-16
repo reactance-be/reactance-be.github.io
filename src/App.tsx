@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import ServicePage from "./pages/ServicePage";
+import GenericPage from "./pages/GenericPage";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +20,11 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/services/:service" element={<ServicePage />} />
+            <Route path="/services/:service/:subService" element={<ServicePage />} />
+            <Route path="/services/:service/:subService/:detail" element={<ServicePage />} />
+            <Route path="/training/:subPage" element={<GenericPage />} />
+            <Route path="/:page" element={<GenericPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
