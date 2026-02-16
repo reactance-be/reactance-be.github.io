@@ -27,7 +27,7 @@ const Header: React.FC = () => {
             onClick={() => { navigate("/"); setMenuOpen(false); }}
             className="font-mono text-lg font-bold text-foreground tracking-tight cursor-pointer"
           >
-            &lt;/C&gt;
+            —||—
           </a>
 
           {/* Menu button */}
