@@ -54,7 +54,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "contact.bookDirect": "Or book directly via Google Calendar",
 
     // Footer
-    "footer.legal": "© 2026 Transformer Engineering Consultancy. All rights reserved.",
+    "footer.legal": "© 2026 Reactance. All rights reserved.",
     "footer.imprint": "Imprint",
   },
   de: {
@@ -102,7 +102,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "contact.email": "info@transformer-consult.com",
     "contact.bookDirect": "Oder direkt über Google Calendar buchen",
 
-    "footer.legal": "© 2026 Transformer Engineering Consultancy. Alle Rechte vorbehalten.",
+    "footer.legal": "© 2026 Reactance. Alle Rechte vorbehalten.",
     "footer.imprint": "Impressum",
   },
   ru: {
@@ -150,7 +150,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "contact.email": "info@transformer-consult.com",
     "contact.bookDirect": "Или запишитесь напрямую через Google Calendar",
 
-    "footer.legal": "© 2026 Transformer Engineering Consultancy. Все права защищены.",
+    "footer.legal": "© 2026 Reactance. Все права защищены.",
     "footer.imprint": "Правовая информация",
   },
   es: {
@@ -198,7 +198,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "contact.email": "info@transformer-consult.com",
     "contact.bookDirect": "O reserve directamente a través de Google Calendar",
 
-    "footer.legal": "© 2026 Transformer Engineering Consultancy. Todos los derechos reservados.",
+    "footer.legal": "© 2026 Reactance. Todos los derechos reservados.",
     "footer.imprint": "Aviso Legal",
   },
 };
