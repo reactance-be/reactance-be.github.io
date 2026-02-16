@@ -146,8 +146,8 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
           transition={{ duration: 0.3 }}
           className="fixed inset-0 z-40 bg-background/95 backdrop-blur-md overflow-y-auto"
         >
-          <div className="container mx-auto px-6 md:px-12 pt-24 pb-12">
-            <div className="max-w-2xl">
+          <div className="container mx-auto px-6 md:px-12 pt-24 pb-12 flex justify-center">
+            <div className="max-w-2xl w-full">
               {menuData.map((item, i) => (
                 <div key={i} className="border-b border-border/50 py-3">
                   <MenuItemRow item={item} onNavigate={handleNavigate} />
