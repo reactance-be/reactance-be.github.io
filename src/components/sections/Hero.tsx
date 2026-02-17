@@ -10,10 +10,20 @@ const Hero: React.FC = () => {
     <section className="relative min-h-screen px-2 pb-2 pt-0">
       {/* Background image with rounded corners and spacing */}
       <div className="relative w-full h-screen rounded-xl overflow-hidden">
-        <img
+        <motion.img
           src={heroBg}
           alt=""
           className="w-full h-full object-cover"
+          animate={{
+            scale: [1, 1.05, 1],
+            x: [0, 10, -10, 0],
+            y: [0, -5, 5, 0],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
         />
         <div className="absolute inset-0 bg-black/40" />
 
