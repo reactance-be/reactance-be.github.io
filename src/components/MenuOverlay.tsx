@@ -2,78 +2,80 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface MenuItem {
-  label: string;
+  labelKey: string;
   path?: string;
   children?: MenuItem[];
 }
 
 const menuData: MenuItem[] = [
   {
-    label: "Services",
+    labelKey: "menu.services",
     children: [
       {
-        label: "Transformers and Shunt Reactors Engineering",
+        labelKey: "menu.transformers-engineering",
         path: "/services/transformers-and-shunt-reactors-engineering",
         children: [
-          { label: "Electromagnetic Calculations", path: "/services/transformers-and-shunt-reactors-engineering/electromagnetic-calculations" },
-          { label: "Active Part Design", path: "/services/transformers-and-shunt-reactors-engineering/active-part-design" },
-          { label: "Transformer Tank and External Equipment Design", path: "/services/transformers-and-shunt-reactors-engineering/tank-and-external-equipment" },
-          { label: "Control Cabinet and External Wiring", path: "/services/transformers-and-shunt-reactors-engineering/control-cabinet-and-wiring" },
+          { labelKey: "menu.electromagnetic-calculations", path: "/services/transformers-and-shunt-reactors-engineering/electromagnetic-calculations" },
+          { labelKey: "menu.active-part-design", path: "/services/transformers-and-shunt-reactors-engineering/active-part-design" },
+          { labelKey: "menu.tank-and-external-equipment", path: "/services/transformers-and-shunt-reactors-engineering/tank-and-external-equipment" },
+          { labelKey: "menu.control-cabinet-and-wiring", path: "/services/transformers-and-shunt-reactors-engineering/control-cabinet-and-wiring" },
           {
-            label: "FEM Simulations",
+            labelKey: "menu.fem-simulations",
             path: "/services/transformers-and-shunt-reactors-engineering/fem-simulations",
             children: [
-              { label: "Static Structural", path: "/services/transformers-and-shunt-reactors-engineering/fem-simulations/static-structural" },
-              { label: "Harmonic Response", path: "/services/transformers-and-shunt-reactors-engineering/fem-simulations/harmonic-response" },
-              { label: "Magnetic Fields", path: "/services/transformers-and-shunt-reactors-engineering/fem-simulations/magnetic-fields" },
-              { label: "Electrostatic", path: "/services/transformers-and-shunt-reactors-engineering/fem-simulations/electrostatic" },
+              { labelKey: "menu.static-structural", path: "/services/transformers-and-shunt-reactors-engineering/fem-simulations/static-structural" },
+              { labelKey: "menu.harmonic-response", path: "/services/transformers-and-shunt-reactors-engineering/fem-simulations/harmonic-response" },
+              { labelKey: "menu.magnetic-fields", path: "/services/transformers-and-shunt-reactors-engineering/fem-simulations/magnetic-fields" },
+              { labelKey: "menu.electrostatic", path: "/services/transformers-and-shunt-reactors-engineering/fem-simulations/electrostatic" },
             ],
           },
-          { label: "Materials Specifications", path: "/services/transformers-and-shunt-reactors-engineering/materials-specifications" },
+          { labelKey: "menu.materials-specifications", path: "/services/transformers-and-shunt-reactors-engineering/materials-specifications" },
         ],
       },
       {
-        label: "Condition Assessment Services",
+        labelKey: "menu.condition-assessment",
         path: "/services/condition-assessment",
         children: [
-          { label: "DGA and Oil Analysis", path: "/services/condition-assessment/dga-and-oil-analysis" },
-          { label: "Modernization and Refurbishment", path: "/services/condition-assessment/modernization-and-refurbishment" },
-          { label: "Reverse Engineering", path: "/services/condition-assessment/reverse-engineering" },
-          { label: "Active Parts Inspection", path: "/services/condition-assessment/active-parts-inspection" },
-          { label: "Maintenance Planning", path: "/services/condition-assessment/maintenance-planning" },
-          { label: "Life Cycle Planning", path: "/services/condition-assessment/life-cycle-planning" },
+          { labelKey: "menu.dga-and-oil-analysis", path: "/services/condition-assessment/dga-and-oil-analysis" },
+          { labelKey: "menu.modernization-and-refurbishment", path: "/services/condition-assessment/modernization-and-refurbishment" },
+          { labelKey: "menu.reverse-engineering", path: "/services/condition-assessment/reverse-engineering" },
+          { labelKey: "menu.active-parts-inspection", path: "/services/condition-assessment/active-parts-inspection" },
+          { labelKey: "menu.maintenance-planning", path: "/services/condition-assessment/maintenance-planning" },
+          { labelKey: "menu.life-cycle-planning", path: "/services/condition-assessment/life-cycle-planning" },
         ],
       },
-      { label: "Specification Writing and Review", path: "/services/specification-writing-and-review" },
-      { label: "Factory Audits", path: "/services/factory-audits" },
-      { label: "Proposal Evaluation", path: "/services/proposal-evaluation" },
-      { label: "Transformer Design Review", path: "/services/transformer-design-review" },
-      { label: "Independent Inspection and Test Witnessing", path: "/services/independent-inspection" },
-      { label: "Core and Coil Inspection", path: "/services/core-and-coil-inspection" },
-      { label: "Pre-processing Inspection", path: "/services/pre-processing-inspection" },
-      { label: "Pre-tanking Inspection", path: "/services/pre-tanking-inspection" },
+      { labelKey: "menu.specification-writing", path: "/services/specification-writing-and-review" },
+      { labelKey: "menu.factory-audits", path: "/services/factory-audits" },
+      { labelKey: "menu.proposal-evaluation", path: "/services/proposal-evaluation" },
+      { labelKey: "menu.transformer-design-review", path: "/services/transformer-design-review" },
+      { labelKey: "menu.independent-inspection", path: "/services/independent-inspection" },
+      { labelKey: "menu.core-and-coil-inspection", path: "/services/core-and-coil-inspection" },
+      { labelKey: "menu.pre-processing-inspection", path: "/services/pre-processing-inspection" },
+      { labelKey: "menu.pre-tanking-inspection", path: "/services/pre-tanking-inspection" },
     ],
   },
   {
-    label: "Training",
+    labelKey: "menu.training",
     path: "/training",
     children: [
-      { label: "Parametrization of Customer Design Solutions", path: "/training/parametrization" },
-      { label: "Integration of CAD/CAE and Software Tools", path: "/training/cad-cae-integration" },
+      { labelKey: "menu.parametrization", path: "/training/parametrization" },
+      { labelKey: "menu.cad-cae-integration", path: "/training/cad-cae-integration" },
     ],
   },
-  { label: "Support", path: "/support" },
-  { label: "About", path: "/about" },
-  { label: "Careers", path: "/careers" },
+  { labelKey: "menu.support", path: "/support" },
+  { labelKey: "menu.about", path: "/about" },
+  { labelKey: "menu.careers", path: "/careers" },
 ];
 
 const MenuItemRow: React.FC<{
   item: MenuItem;
   depth?: number;
   onNavigate: (path: string) => void;
-}> = ({ item, depth = 0, onNavigate }) => {
+  t: (key: string) => string;
+}> = ({ item, depth = 0, onNavigate, t }) => {
   const [expanded, setExpanded] = useState(false);
   const hasChildren = item.children && item.children.length > 0;
 
@@ -95,7 +97,7 @@ const MenuItemRow: React.FC<{
           }
         }}
       >
-        <span className="group-hover:translate-x-1 transition-transform">{item.label}</span>
+        <span className="group-hover:translate-x-1 transition-transform">{t(item.labelKey)}</span>
         {hasChildren && (
           <ChevronRight
             size={depth === 0 ? 20 : 16}
@@ -114,7 +116,7 @@ const MenuItemRow: React.FC<{
             className="overflow-hidden border-l border-border ml-2"
           >
             {item.children!.map((child, i) => (
-              <MenuItemRow key={i} item={child} depth={depth + 1} onNavigate={onNavigate} />
+              <MenuItemRow key={i} item={child} depth={depth + 1} onNavigate={onNavigate} t={t} />
             ))}
           </motion.div>
         )}
@@ -130,6 +132,7 @@ interface MenuOverlayProps {
 
 const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   const handleNavigate = (path: string) => {
     navigate(path);
@@ -150,7 +153,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
             <div className="max-w-2xl w-full">
               {menuData.map((item, i) => (
                 <div key={i} className="border-b border-border/50 py-3">
-                  <MenuItemRow item={item} onNavigate={handleNavigate} />
+                  <MenuItemRow item={item} onNavigate={handleNavigate} t={t} />
                 </div>
               ))}
             </div>

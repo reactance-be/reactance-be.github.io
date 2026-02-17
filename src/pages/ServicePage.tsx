@@ -3,52 +3,52 @@ import { useParams, useNavigate } from "react-router-dom";
 import Header from "@/components/sections/Header";
 import Footer from "@/components/sections/Footer";
 import { ArrowLeft } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
-const serviceTitles: Record<string, string> = {
-  "transformers-and-shunt-reactors-engineering": "Transformers and Shunt Reactors Engineering",
-  "condition-assessment": "Condition Assessment Services",
-  "specification-writing-and-review": "Specification Writing and Review",
-  "factory-audits": "Factory Audits",
-  "proposal-evaluation": "Proposal Evaluation",
-  "transformer-design-review": "Transformer Design Review",
-  "independent-inspection": "Independent Inspection and Test Witnessing",
-  "core-and-coil-inspection": "Core and Coil Inspection",
-  "pre-processing-inspection": "Pre-processing Inspection",
-  "pre-tanking-inspection": "Pre-tanking Inspection"
-};
-
-const subServiceTitles: Record<string, string> = {
-  "electromagnetic-calculations": "Electromagnetic Calculations",
-  "active-part-design": "Active Part Design",
-  "tank-and-external-equipment": "Transformer Tank and External Equipment Design",
-  "control-cabinet-and-wiring": "Control Cabinet and External Wiring",
-  "fem-simulations": "FEM Simulations",
-  "materials-specifications": "Materials Specifications",
-  "dga-and-oil-analysis": "DGA and Oil Analysis",
-  "modernization-and-refurbishment": "Modernization and Refurbishment",
-  "reverse-engineering": "Reverse Engineering",
-  "active-parts-inspection": "Active Parts Inspection",
-  "maintenance-planning": "Maintenance Planning",
-  "life-cycle-planning": "Life Cycle Planning",
-  "static-structural": "Static Structural",
-  "harmonic-response": "Harmonic Response",
-  "magnetic-fields": "Magnetic Fields",
-  "electrostatic": "Electrostatic"
+// Map URL slugs to translation keys
+const serviceKeyMap: Record<string, string> = {
+  "transformers-and-shunt-reactors-engineering": "transformers-and-shunt-reactors-engineering",
+  "condition-assessment": "condition-assessment",
+  "specification-writing-and-review": "specification-writing-and-review",
+  "factory-audits": "factory-audits",
+  "proposal-evaluation": "proposal-evaluation",
+  "transformer-design-review": "transformer-design-review",
+  "independent-inspection": "independent-inspection",
+  "core-and-coil-inspection": "core-and-coil-inspection",
+  "pre-processing-inspection": "pre-processing-inspection",
+  "pre-tanking-inspection": "pre-tanking-inspection",
+  "electromagnetic-calculations": "electromagnetic-calculations",
+  "active-part-design": "active-part-design",
+  "tank-and-external-equipment": "tank-and-external-equipment",
+  "control-cabinet-and-wiring": "control-cabinet-and-wiring",
+  "fem-simulations": "fem-simulations",
+  "materials-specifications": "materials-specifications",
+  "dga-and-oil-analysis": "dga-and-oil-analysis",
+  "modernization-and-refurbishment": "modernization-and-refurbishment",
+  "reverse-engineering": "reverse-engineering",
+  "active-parts-inspection": "active-parts-inspection",
+  "maintenance-planning": "maintenance-planning",
+  "life-cycle-planning": "life-cycle-planning",
+  "static-structural": "static-structural",
+  "harmonic-response": "harmonic-response",
+  "magnetic-fields": "magnetic-fields",
+  "electrostatic": "electrostatic",
 };
 
 const ServicePage: React.FC = () => {
   const { service, subService, detail } = useParams();
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
-  const title = detail ?
-  subServiceTitles[detail] || detail :
-  subService ?
-  subServiceTitles[subService] || subService :
-  serviceTitles[service || ""] || service;
+  const slug = detail || subService || service || "";
+  const key = serviceKeyMap[slug] || slug;
 
-  const parentTitle = subService ?
-  serviceTitles[service || ""] :
-  undefined;
+  const title = t(`service.${key}.title`);
+  const description = t(`service.${key}.desc`);
+
+  const parentSlug = subService ? service : undefined;
+  const parentKey = parentSlug ? serviceKeyMap[parentSlug] || parentSlug : undefined;
+  const parentTitle = parentKey ? t(`service.${parentKey}.title`) : undefined;
 
   return (
     <div className="min-h-screen bg-background">
@@ -57,30 +57,30 @@ const ServicePage: React.FC = () => {
         <div className="container mx-auto px-6 md:px-12">
           <button
             onClick={() => navigate(-1)}
-            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-8 transition-colors">
-
+            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-8 transition-colors"
+          >
             <ArrowLeft size={16} />
-            Back
+            {t("common.back")}
           </button>
 
-          {parentTitle &&
-          <p className="text-sm font-mono text-muted-foreground mb-2">{parentTitle}</p>
-          }
+          {parentTitle && (
+            <p className="text-sm font-mono text-muted-foreground mb-2">{parentTitle}</p>
+          )}
 
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-8 tracking-tight">
             {title}
           </h1>
 
           <div className="terminal-card p-8 max-w-3xl">
-            <p className="text-muted-foreground leading-relaxed">
-              Please contact us for more information.
+            <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
+              {description}
             </p>
           </div>
         </div>
       </main>
       <Footer />
-    </div>);
-
+    </div>
+  );
 };
 
 export default ServicePage;
