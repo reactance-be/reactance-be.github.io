@@ -14,7 +14,7 @@ const serviceTitles: Record<string, string> = {
   "independent-inspection": "Independent Inspection and Test Witnessing",
   "core-and-coil-inspection": "Core and Coil Inspection",
   "pre-processing-inspection": "Pre-processing Inspection",
-  "pre-tanking-inspection": "Pre-tanking Inspection",
+  "pre-tanking-inspection": "Pre-tanking Inspection"
 };
 
 const subServiceTitles: Record<string, string> = {
@@ -33,22 +33,22 @@ const subServiceTitles: Record<string, string> = {
   "static-structural": "Static Structural",
   "harmonic-response": "Harmonic Response",
   "magnetic-fields": "Magnetic Fields",
-  "electrostatic": "Electrostatic",
+  "electrostatic": "Electrostatic"
 };
 
 const ServicePage: React.FC = () => {
   const { service, subService, detail } = useParams();
   const navigate = useNavigate();
 
-  const title = detail
-    ? subServiceTitles[detail] || detail
-    : subService
-    ? subServiceTitles[subService] || subService
-    : serviceTitles[service || ""] || service;
+  const title = detail ?
+  subServiceTitles[detail] || detail :
+  subService ?
+  subServiceTitles[subService] || subService :
+  serviceTitles[service || ""] || service;
 
-  const parentTitle = subService
-    ? serviceTitles[service || ""]
-    : undefined;
+  const parentTitle = subService ?
+  serviceTitles[service || ""] :
+  undefined;
 
   return (
     <div className="min-h-screen bg-background">
@@ -57,15 +57,15 @@ const ServicePage: React.FC = () => {
         <div className="container mx-auto px-6 md:px-12">
           <button
             onClick={() => navigate(-1)}
-            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-8 transition-colors"
-          >
+            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-8 transition-colors">
+
             <ArrowLeft size={16} />
             Back
           </button>
 
-          {parentTitle && (
-            <p className="text-sm font-mono text-muted-foreground mb-2">{parentTitle}</p>
-          )}
+          {parentTitle &&
+          <p className="text-sm font-mono text-muted-foreground mb-2">{parentTitle}</p>
+          }
 
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-8 tracking-tight">
             {title}
@@ -73,14 +73,14 @@ const ServicePage: React.FC = () => {
 
           <div className="terminal-card p-8 max-w-3xl">
             <p className="text-muted-foreground leading-relaxed">
-              Content for this section is coming soon. Please contact us for more information.
+              Please contact us for more information.
             </p>
           </div>
         </div>
       </main>
       <Footer />
-    </div>
-  );
+    </div>);
+
 };
 
 export default ServicePage;
