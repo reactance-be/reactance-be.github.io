@@ -73,7 +73,7 @@ const ServicePage: React.FC = () => {
 
           <div className="terminal-card p-8 max-w-3xl">
             <p className="text-muted-foreground leading-relaxed">
-              We are providing electromagnetic calculations for various products.
+              Please contact us for more information.
             </p>
           </div>
         </div>
