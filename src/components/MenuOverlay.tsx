@@ -22,16 +22,7 @@ const menuData: MenuItem[] = [
           { labelKey: "menu.active-part-design", path: "/services/transformers-and-shunt-reactors-engineering/active-part-design" },
           { labelKey: "menu.tank-and-external-equipment", path: "/services/transformers-and-shunt-reactors-engineering/tank-and-external-equipment" },
           { labelKey: "menu.control-cabinet-and-wiring", path: "/services/transformers-and-shunt-reactors-engineering/control-cabinet-and-wiring" },
-          {
-            labelKey: "menu.fem-simulations",
-            path: "/services/transformers-and-shunt-reactors-engineering/fem-simulations",
-            children: [
-              { labelKey: "menu.static-structural", path: "/services/transformers-and-shunt-reactors-engineering/fem-simulations/static-structural" },
-              { labelKey: "menu.harmonic-response", path: "/services/transformers-and-shunt-reactors-engineering/fem-simulations/harmonic-response" },
-              { labelKey: "menu.magnetic-fields", path: "/services/transformers-and-shunt-reactors-engineering/fem-simulations/magnetic-fields" },
-              { labelKey: "menu.electrostatic", path: "/services/transformers-and-shunt-reactors-engineering/fem-simulations/electrostatic" },
-            ],
-          },
+          { labelKey: "menu.fem-simulations", path: "/services/transformers-and-shunt-reactors-engineering/fem-simulations" },
           { labelKey: "menu.materials-specifications", path: "/services/transformers-and-shunt-reactors-engineering/materials-specifications" },
         ],
       },
