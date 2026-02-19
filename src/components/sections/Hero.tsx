@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
                   {t("hero.heading")}
                 </h1>
 
-                <p className="text-base md:text-lg text-white/70 max-w-xl leading-relaxed font-mono">
+                <p className="text-base md:text-lg text-white/70 max-w-xl leading-relaxed font-mono whitespace-pre-line">
                   {t("hero.subheading")}
                 </p>
               </motion.div>

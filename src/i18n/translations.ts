@@ -10,7 +10,7 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Hero
     "hero.heading": "Precision Engineering for Power Transformers.",
-    "hero.subheading": "Reduce R&D costs by up to 40% through automated design and 15+ years of international expertise.",
+    "hero.subheading": "Accelerate growth in the expanding power transformer market.\nCut engineering costs by up to 90%.\nReactance — your strategic engineering partner.",
     "hero.cta": "Schedule a Teams Call",
 
     // Trust
@@ -170,7 +170,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "nav.contact": "Kontakt",
 
     "hero.heading": "Präzisionstechnik für Leistungstransformatoren.",
-    "hero.subheading": "Senken Sie Ihre F&E-Kosten um bis zu 40 % durch automatisiertes Design und über 15 Jahre internationale Erfahrung.",
+    "hero.subheading": "Beschleunigen Sie das Wachstum im expandierenden Leistungstransformatorenmarkt.\nSenken Sie die Ingenieurskosten um bis zu 90 %.\nReactance — Ihr strategischer Engineering-Partner.",
     "hero.cta": "Teams-Gespräch vereinbaren",
 
     "trust.experience": "15+ Jahre Erfahrung",
@@ -321,7 +321,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "nav.contact": "Контакт",
 
     "hero.heading": "Точное проектирование силовых трансформаторов.",
-    "hero.subheading": "Сократите затраты на НИОКР до 40 % благодаря автоматизированному проектированию и более чем 15-летнему международному опыту.",
+    "hero.subheading": "Ускорьте рост на расширяющемся рынке силовых трансформаторов.\nСократите инженерные затраты до 90 %.\nReactance — ваш стратегический инженерный партнер.",
     "hero.cta": "Записаться на звонок в Teams",
 
     "trust.experience": "15+ лет опыта",
@@ -472,7 +472,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "nav.contact": "Contacto",
 
     "hero.heading": "Ingeniería de Precisión para Transformadores de Potencia.",
-    "hero.subheading": "Reduzca los costos de I+D hasta un 40 % mediante diseño automatizado y más de 15 años de experiencia internacional.",
+    "hero.subheading": "Acelere el crecimiento en el mercado en expansión de transformadores de potencia.\nReduzca los costos de ingeniería hasta un 90 %.\nReactance — su socio estratégico de ingeniería.",
     "hero.cta": "Agendar llamada en Teams",
 
     "trust.experience": "15+ Años de Experiencia",
