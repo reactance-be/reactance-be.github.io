@@ -17,14 +17,14 @@ const Hero: React.FC = () => {
           animate={{
             scale: [1, 1.05, 1],
             x: [0, 10, -10, 0],
-            y: [0, -5, 5, 0],
+            y: [0, -5, 5, 0]
           }}
           transition={{
             duration: 20,
             repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+            ease: "easeInOut"
+          }} />
+
         <div className="absolute inset-0 bg-black/40" />
 
         {/* Content overlay */}
@@ -34,13 +34,13 @@ const Hero: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-              >
+                transition={{ duration: 0.8, ease: "easeOut" }}>
+
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] text-white mb-8 tracking-tight">
                   {t("hero.heading")}
                 </h1>
 
-                <p className="text-base md:text-lg text-white/70 max-w-xl leading-relaxed font-mono whitespace-pre-line">
+                <p className="text-base md:text-lg text-white/70 max-w-xl leading-relaxed font-mono px-0">
                   {t("hero.subheading")}
                 </p>
               </motion.div>
@@ -48,8 +48,8 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default Hero;
