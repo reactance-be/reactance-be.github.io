@@ -28,7 +28,7 @@ const Header: React.FC = () => {
             onClick={() => { navigate("/"); setMenuOpen(false); }}
             className="cursor-pointer"
           >
-            <img src={logo} alt="Reactance" className="h-7 w-auto invert dark:invert-0" />
+            <img src={logo} alt="Reactance" className="h-7 w-auto" />
           </a>
 
           {/* Menu button */}
