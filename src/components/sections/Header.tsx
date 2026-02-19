@@ -4,6 +4,7 @@ import { Language } from "@/i18n/translations";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import MenuOverlay from "@/components/MenuOverlay";
+import logo from "@/assets/logo.png";
 
 const languages: { code: Language; label: string }[] = [
   { code: "en", label: "EN" },
@@ -25,9 +26,9 @@ const Header: React.FC = () => {
           {/* Logo */}
           <a
             onClick={() => { navigate("/"); setMenuOpen(false); }}
-            className="font-mono text-lg font-bold text-foreground tracking-tight cursor-pointer"
+            className="cursor-pointer"
           >
-            —||—
+            <img src={logo} alt="Reactance" className="h-7 w-auto invert dark:invert-0" />
           </a>
 
           {/* Menu button */}
