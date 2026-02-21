@@ -21,7 +21,7 @@ const menuData: MenuItem[] = [
           { labelKey: "menu.electromagnetic-calculations", path: "/services/transformers-and-shunt-reactors-engineering/electromagnetic-calculations" },
           { labelKey: "menu.active-part-design", path: "/services/transformers-and-shunt-reactors-engineering/active-part-design" },
           { labelKey: "menu.tank-and-external-equipment", path: "/services/transformers-and-shunt-reactors-engineering/tank-and-external-equipment" },
-          { labelKey: "menu.control-cabinet-and-wiring", path: "/services/transformers-and-shunt-reactors-engineering/control-cabinet-and-wiring" },
+          
           { labelKey: "menu.fem-simulations", path: "/services/transformers-and-shunt-reactors-engineering/fem-simulations" },
           { labelKey: "menu.materials-specifications", path: "/services/transformers-and-shunt-reactors-engineering/materials-specifications" },
         ],
@@ -32,8 +32,6 @@ const menuData: MenuItem[] = [
         children: [
           { labelKey: "menu.dga-and-oil-analysis", path: "/services/condition-assessment/dga-and-oil-analysis" },
           { labelKey: "menu.modernization-and-refurbishment", path: "/services/condition-assessment/modernization-and-refurbishment" },
-          { labelKey: "menu.reverse-engineering", path: "/services/condition-assessment/reverse-engineering" },
-          { labelKey: "menu.active-parts-inspection", path: "/services/condition-assessment/active-parts-inspection" },
           { labelKey: "menu.maintenance-planning", path: "/services/condition-assessment/maintenance-planning" },
           { labelKey: "menu.life-cycle-planning", path: "/services/condition-assessment/life-cycle-planning" },
         ],
