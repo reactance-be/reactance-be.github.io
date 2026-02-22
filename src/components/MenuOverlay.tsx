@@ -24,6 +24,7 @@ const menuData: MenuItem[] = [
           
           { labelKey: "menu.fem-simulations", path: "/services/transformers-and-shunt-reactors-engineering/fem-simulations" },
           { labelKey: "menu.materials-specifications", path: "/services/transformers-and-shunt-reactors-engineering/materials-specifications" },
+          { labelKey: "menu.design-portfolio", path: "/services/transformers-and-shunt-reactors-engineering/design-portfolio" },
         ],
       },
       {

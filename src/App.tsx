@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ServicePage from "./pages/ServicePage";
 import GenericPage from "./pages/GenericPage";
+import DesignPortfolio from "./pages/DesignPortfolio";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/services/transformers-and-shunt-reactors-engineering/design-portfolio" element={<DesignPortfolio />} />
             <Route path="/services/:service" element={<ServicePage />} />
             <Route path="/services/:service/:subService" element={<ServicePage />} />
             <Route path="/services/:service/:subService/:detail" element={<ServicePage />} />
